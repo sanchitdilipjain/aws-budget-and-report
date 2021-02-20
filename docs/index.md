@@ -1,37 +1,107 @@
-## Welcome to GitHub Pages
+## AWS Budget
 
-You can use the [editor on GitHub](https://github.com/sanchitdilipjain/aws-budget-and-report/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+**Monthly cost budget**
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+  - Introduction
+      - AWS Budgets provides feature to handle cost and utilisation by providing notifications when cost or usage are beyond configured threshold. It can only be used as a mechanism to notify the usage and not a medium to restrict the actions.
+      - Budgets and notifications are directly dependent on your billing data and it is updated at least once a day<br>
+      **NOTE:** You may not receive an alarm for a forecasted budget if your account is new. Forecasting requires existing usage within the account.
+      
+  - Create monthly cost budget
+    
+    In this tutorial we will create monthly forecast budget and configure notifitcation
+    
+    1. Log into the console and search for Billing
+    
+    <img src="images/image1.png" class="inline"/>
 
-### Markdown
+    2. Select Budgets
+   
+    <img src="images/image2.png" class="inline"/>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    3. CLick Create a budget
+    
+    <img src="images/image3.png" class="inline"/>
 
-```markdown
-Syntax highlighted code block
+    4. Click Set your budget
+    
+    <img src="images/image4.png" class="inline"/>
 
-# Header 1
-## Header 2
-### Header 3
+    5. Set your budget and enter the following details:
+        - Name: MonthlyBudget
+        - Period: Monthly
+        - Budget effective dates: Recurring Budget
+        - Start Month: (select current month)
+        - Budget amount: Fixed
+        - Budgeted amount: $5000
+        - Other fields: leave as defaults 
+    
+    <img src="images/image5.png" class="inline"/>
 
-- Bulleted
-- List
+     6. Scroll below and click Configure alerts
+    
+    <img src="images/image6.png" class="inline"/>
 
-1. Numbered
-2. List
+     7. Select:
+        - Send alert based on: Forecasted Costs
+        - Alert threshold: 100% of budgeted amount
+        - Email contacts: (your email address)
+        - Click on Confirm budget
+    
+    <img src="images/image7.png" class="inline"/>
 
-**Bold** and _Italic_ and `Code` text
+     8. Verify the details, and click Create
+    
+    <img src="images/image8.png" class="inline"/>
 
-[Link](url) and ![Image](src)
-```
+     9. You will be presented with the current forecast 
+    
+    <img src="images/image9.png" class="inline"/>
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+     10. After the configured threshold is surpassed, you will receive an email similar to this within a few minute
+    
+    <img src="images/image10.png" class="inline"/>
+ 
+ **AWS Budget Report**
 
-### Jekyll Themes
+ - Introduction
+      - AWS Budgets Reports allow you to create and send daily, weekly, or monthly reports to monitor the performance of your AWS Budgets..
+      
+  - Create weekly budget report
+    
+    In this tutorial we will create weekly budget status and configure notifitcation
+    
+     1. Under Budgets dashboard, Select on Budgets Reports
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sanchitdilipjain/aws-budget-and-report/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+     2. Click Create budget report
+   
+     <img src="images/image11.png" class="inline"/>
 
-### Support or Contact
+     3. Select a report with the below details
+        - Report name: WeeklyBudgets
+        - Select all budgets
+    
+     <img src="images/image12.png" class="inline"/>
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+     4. Select Configure delivery settings
+
+     5. Configure the delivery settings
+        - Report frequency: Weekly
+        - Day of week: Monday
+        - Email recipients
+    
+     6. Click Confirm budget report
+    
+    <img src="images/image13.png" class="inline"/>
+
+     7. Confirm the configuration, click Create
+    
+    <img src="images/image14.png" class="inline"/>
+
+     8. Now the budget report setup is complete
+    
+    <img src="images/image15.png" class="inline"/>
+
+     9. You should receive an email similar to the one below
+    
+    <img src="images/image16.png" class="inline"/>
